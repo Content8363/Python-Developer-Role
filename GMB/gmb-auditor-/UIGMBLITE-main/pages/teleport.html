@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Teleport Search</title>
+  <link rel="stylesheet" href="../libs/leaflet.css" />
+  <style>
+    body {
+      background-color: #fefaf6;
+      font-family: Arial, sans-serif;
+      padding: 30px;
+      display: flex;
+      justify-content: center;
+    }
+    .box {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 20px;
+      max-width: 500px;
+      width: 100%;
+      box-shadow: 0 0 8px rgba(0,0,0,0.05);
+    }
+    label {
+      font-weight: bold;
+      font-size: 14px;
+      display: block;
+      margin: 12px 0 6px;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #e76f51;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    #map {
+      width: 100%;
+      height: 300px;
+      margin-top: 10px;
+      border: 1px solid #f2c5b9;
+      border-radius: 4px;
+    }
+    #searchBtn {
+      background-color: #e76f51;
+      color: white;
+      font-weight: bold;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      width: 100%;
+      margin-top: 16px;
+      cursor: pointer;
+    }
+    #searchBtn:hover {
+      background-color: #d65b3d;
+    }
+    .step {
+      font-size: 14px;
+      color: #333;
+      margin-top: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <div class="step">Step 1: Enter a search term to find rankings for</div>
+    <input id="query" type="text" placeholder="e.g. pizza near me" />
+
+    <div class="step">Step 2: Drop a pin on the map to see how this business ranks in that location for the above term</div>
+    <div id="map"></div>
+
+    <div class="step">Step 3: Click to check ranking at the selected location</div>
+    <button id="searchBtn">Teleport Me Here</button>
+
+    <div id="results" style="margin-top: 20px; font-size: 14px; color: #333;">
+      <p id="status">⌛ Waiting for rankings...</p>
+      <ul id="list" style="margin-top: 8px; padding-left: 16px;"></ul>
+    </div>
+    
+  </div>
+
+  <script src="../libs/leaflet.js"></script>
+  <script src="teleport.js"></script>
+</body>
+</html>
+

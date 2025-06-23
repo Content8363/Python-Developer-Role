@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>GMB Toolkit</title>
+  <!-- Tailwind CSS -->
+  <link rel="stylesheet" href="./tailwind.css" />
+
+</head>
+<body class="w-[330px] font-sans">
+
+  <!-- Tab Bar -->
+  <nav class="flex bg-gray-100 rounded-lg p-1 mb-2"><script src="libs/chart.min.js"></script>
+    <button data-tab="tp"
+            class="tab flex-1 py-2 px-3 text-sm font-medium rounded-md bg-blue-600 text-white">
+      Teleport
+    </button>
+    <button data-tab="gmb"
+            class="tab flex-1 py-2 px-3 text-sm font-medium rounded-md text-gray-700 hover:bg-gray-200">
+      Info
+    </button>
+    <button data-tab="rev"
+            class="tab flex-1 py-2 px-3 text-sm font-medium rounded-md text-gray-700 hover:bg-gray-200">
+      Reviews
+    </button>
+
+    <button class="tab text-sm font-medium px-4 py-2 text-gray-700" data-tab="posts">📊 Posts</button>
+    <button data-tab="Ai_Tool"
+            class="tab flex-1 py-2 px-3 text-sm font-medium rounded-md bg-blue-600 text-white">
+      AI TOOL
+    </button>
+  </nav>
+
+  <!-- Teleport Section -->
+  <section id="tp" class="p-4">
+    <label class="block text-sm font-medium text-gray-700">
+      Search query
+      <input id="tp_query" type="text" placeholder="e.g. coffee near Times Sq"
+             class="mt-1 block w-full rounded-md border-gray-300
+                    focus:border-blue-500 focus:ring-blue-500 p-2 text-sm" />
+    </label>
+    <button id="tp_go"
+            class="mt-3 w-full bg-blue-600 hover:bg-blue-700
+                   text-white py-2 px-4 rounded-md">
+      Open Teleport Map
+    </button>
+  </section>
+
+  <!-- Info Section -->
+  <section id="gmb" class="p-2 hidden">
+    <div id="gmb_box"
+         style="font-family: Arial, sans-serif; font-size: 13px; line-height: 1.5;
+                background: #fff; padding: 10px; border: 1px solid #ddd;
+                border-radius: 8px; box-shadow: 0 0 8px rgba(0,0,0,0.05);
+                max-height: 360px; overflow-y: auto;">
+      <p style="color: gray; font-size: 12px;">…waiting for data</p>
+    </div>
+  </section>
+  
+  
+
+  <!-- Reviews Section -->
+  <section id="rev" class="p-4 hidden">
+    <button id="rev_go"
+            class="w-full bg-blue-600 hover:bg-blue-700
+                   text-white py-2 px-4 rounded-md">
+      Analyze this business’ reviews
+    </button>
+    <div class="mt-3 h-44">
+      <canvas id="rev_chart" class="w-full h-full"></canvas>
+    </div>
+  </section>
+
+  <section id="posts" class="hidden p-4">
+    <button id="load_posts" class="bg-blue-600 text-white px-4 py-2 rounded mb-4 w-full">
+      Analyze Posts
+    </button>
+    <div id="summary" class="text-sm mb-3 text-gray-800">Click above to load post analysis</div>
+    <canvas id="postChart" height="300"></canvas>
+  </section>
+  
+  <!-- Step 1: Update popup2-info.html to add a new AI Tools tab -->
+<!-- Add this inside the tab button section -->
+
+<!-- <section id="Ai_Tool" class="hidden p-4">
+    <button id="load_posts" class="bg-blue-600 text-white px-4 py-2 rounded mb-4 w-full">
+      AI Tools
+    </button> -->
+    <!-- <div id="summary" class="text-sm mb-3 text-gray-800">Click above to load post analysis</div> -->
+     <!-- <div id="gmb-ai-panel">
+      <div class="tool-buttons">
+      <button class="ai-button"  class="text-sm mb-3 text-gray-800" data-tool="gmb-post">GMB Post</button>
+      <button class="ai-button"  class="text-sm mb-3 text-gray-800" data-tool="facebook-post">Facebook Post</button>
+      <button class="ai-button"  class="text-sm mb-3 text-gray-800" data-tool="category">GMB Category</button>
+      <button class="ai-button"  class="text-sm mb-3 text-gray-800" data-tool="service">GMB Services</button>
+      <button class="ai-button"  class="text-sm mb-3 text-gray-800" data-tool="review-response">Review Response</button>
+      <button class="ai-button"  class="text-sm mb-3 text-gray-800" data-tool="qa">Q&A Section</button>
+      <textarea id="gmb-result" placeholder="Result will appear here..."></textarea>
+    </div>
+    </div>
+    <canvas id="postChart" height="300"></canvas>
+  </section> -->
+
+  <button data-tab="Ai_Tool"
+        class="tab flex-1 py-2 px-3 text-sm font-medium rounded-md bg-blue-600 text-white">
+  AI TOOL
+</button>
+
+
+
+<!-- <button id="ai-tools-tab" class="tab-button">AI Tools</button> -->
+
+<!-- Add this in the tab content area -->
+<!-- <div id="ai-tools-content" class="tab-content hidden">
+  <div id="gmb-ai-panel">
+    <div class="tool-buttons">
+      <button class="ai-button" data-tool="gmb-post">GMB Post</button>
+      <button class="ai-button" data-tool="facebook-post">Facebook Post</button>
+      <button class="ai-button" data-tool="category">GMB Category</button>
+      <button class="ai-button" data-tool="service">GMB Services</button>
+      <button class="ai-button" data-tool="review-response">Review Response</button>
+      <button class="ai-button" data-tool="qa">Q&A Section</button>
+    </div>
+    <textarea id="gmb-result" placeholder="Result will appear here..."></textarea>
+  </div>
+</div> -->
+
+  <script src="popup.js"></script>
+  <script src="content_scripts/post-analysis.js"></script>
+  <script src="libs/chart.min.js"></script>
+</body>
+</html>
